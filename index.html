@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#080909">
+<meta name="description" content="SAVE OR DONATE — 60-day self-control challenge tracker">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icon-192.png">
+<link rel="apple-touch-icon" href="icon-192.png">
+<title>Save or Donate — 60 Days Challenge</title>
+<style>
+:root{--bg:#080909;--card:#292929;--card2:#18241f;--line:#3b3b3b;--muted:#b9b9b9;--green:#31d49a;--gold:#f3c35c;--red:#ff6868;--orange:#ffb46b}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:#f5f5f5;font:14px/1.45 Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif}
+main{width:min(100%,760px);margin:auto;padding:20px 16px 34px}.eyebrow{color:var(--gold);font-size:11px;letter-spacing:1.5px;font-weight:800;margin:8px 0 4px}
+h1{font-size:25px;line-height:1.15;margin:0 0 22px;font-weight:850;letter-spacing:-.5px}h1 span{color:var(--gold)}
+.card{background:var(--card);border:1px solid #3c3c3c;border-radius:21px;padding:17px;margin:0 0 16px;box-shadow:0 5px 18px #0002}
+.status{background:linear-gradient(135deg,#1b2a24,#17211e);border-color:#304239}.topline,.between{display:flex;align-items:center;justify-content:space-between;gap:12px}.muted{color:var(--muted)}.small{font-size:12px}.pill{border:1px solid #40574c;border-radius:30px;padding:8px 12px;color:var(--green);font-size:11px;white-space:nowrap}
+.metrics{display:flex;justify-content:space-between;margin:16px 0 20px}.metric strong{display:block;font-size:27px;line-height:1.15}.metric:last-child{text-align:right}.gold{color:var(--gold)}.green{color:var(--green)}.red{color:var(--red)}
+.bar{height:10px;border-radius:20px;background:#444;overflow:hidden;margin:10px 0 7px}.bar>i{display:block;height:100%;background:linear-gradient(90deg,#20ad7d,#65dfa9);border-radius:20px;width:0%}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px}.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:9px}.pot{min-height:132px}.pot .amount{font-size:29px;font-weight:850;line-height:1.3}.pot .bar{height:9px;margin-top:14px}.mini{text-align:center;padding:17px 8px}.mini strong{display:block;font-size:26px;line-height:1.3}.section-title{font-size:17px;font-weight:800;margin:0 0 7px}.level{display:flex;align-items:center;justify-content:space-between}.level strong{font-size:21px;color:var(--gold)}.sprout{font-size:34px}
+.calculator .big{font-size:33px;font-weight:850;line-height:1.2}.calcgrid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:14px 0}.checkin-buttons{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:16px 0 10px}
+button{font:inherit;color:inherit;cursor:pointer;border:1px solid #505050;border-radius:15px;background:#333;padding:13px 14px;font-weight:750}
+button:active{transform:scale(.99)}button:disabled{opacity:.45;cursor:not-allowed}
+.action{min-height:112px;font-size:16px}.action span{display:block;font-size:27px;margin-bottom:3px}.success{background:#103d30;border-color:#169b70;color:#62e6b3}.slip{background:#44291d;border-color:#a76535;color:#ffc27e}.incident{width:100%;background:#451f22;border:1px solid #a74349;color:#ff9b9b;margin:0 0 14px;padding:16px;font-size:15px}
+.history-row{padding:13px 0;border-bottom:1px solid #444}.history-row:last-child{border:0}.history-row strong{display:block}.tools{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0}.tools button{font-size:12px;padding:10px 12px}.calendar{display:grid;grid-template-columns:repeat(7,1fr);gap:6px;margin-top:12px}.day{padding:8px 2px;text-align:center;border-radius:9px;background:#414141;border:1px solid transparent;font-size:12px;min-height:46px}.day small{display:block;font-size:9px;color:#ddd}.day.s{background:#10513e;border-color:#20a77b}.day.l{background:#652a2d;border-color:#b84a50}.day.today{outline:2px solid var(--gold)}.day:disabled{opacity:.25}
+select,input{background:#363636;color:white;border:1px solid #555;border-radius:10px;padding:9px;font:inherit}.footer{text-align:center;color:#bbb;font-size:12px;margin:24px 0}.notice{font-size:12px;color:#c8c8c8;margin-top:8px}.modal{position:fixed;inset:0;background:#000b;display:none;align-items:center;justify-content:center;padding:18px;z-index:9}.modal.open{display:flex}.dialog{width:min(100%,430px);background:#252525;border:1px solid #555;border-radius:20px;padding:20px}.dialog h2{margin:0 0 8px}.dialog-actions{display:flex;gap:10px;margin-top:18px}.dialog-actions button{flex:1}.hidden{display:none!important}.filters{display:flex;gap:7px;flex-wrap:wrap;margin:12px 0}.filters button{font-size:11px;padding:8px 10px}.filters .active{border-color:var(--gold);color:var(--gold)}
+@media(max-width:420px){main{padding:17px 12px 28px}.card{padding:15px;border-radius:19px}.grid2{gap:9px}.pot .amount{font-size:25px}.mini strong{font-size:23px}.section-title{font-size:16px}}
+</style></head>
+<body><main>
+<div class="eyebrow">THE 60-DAY SELF-CONTROL CHALLENGE</div>
+<div class="between"><h1>SAVE <span>OR DONATE</span></h1><div class="pill">✦ 60 DAYS</div></div>
+
+<section class="card status">
+ <div class="topline"><b class="muted small">CHALLENGE STATUS</b><span class="pill" id="statePill">● ACTIVE</span></div>
+ <div class="metrics"><div class="metric"><span class="muted small">CURRENT DAY</span><strong id="dayNum">1<span class="muted">/60</span></strong><span class="muted small" id="todayLabel"></span></div><div class="metric"><span class="muted small">DAYS REMAINING</span><strong class="gold" id="remaining">59</strong><span class="muted small">Calendar days</span></div></div>
+ <div class="bar"><i id="overallBar"></i></div><div class="between small muted"><span>Challenge progress</span><span id="overallPct">2%</span></div>
+</section>
+
+<div class="grid2">
+ <section class="card pot"><div class="muted small">💰 SAVINGS POT</div><div class="amount green" id="savings">₹500</div><div class="muted small">Target: ₹1,000</div><div class="bar"><i id="savingBar"></i></div><div class="small muted" id="savingPct">50% of savings target</div></section>
+ <section class="card pot"><div class="muted small">🐄 GOSHALA POT</div><div class="amount gold" id="gosha">₹500</div><div class="muted small">Final target: ₹0</div><div class="bar"><i id="goshaBar" style="background:linear-gradient(90deg,#bd8b2f,#f2d17d)"></i></div><div class="small muted" id="goshaSub">₹500 available</div></section>
+</div>
+
+<div class="grid3">
+ <section class="card mini"><span class="muted small">SUCCESS</span><strong class="green" id="successCount">0</strong></section>
+ <section class="card mini"><span class="muted small">SLIP DAYS</span><strong class="gold" id="slipCount">0</strong></section>
+ <section class="card mini"><span class="muted small">STREAK</span><strong id="streak">0</strong></section>
+</div>
+
+<section class="card"><div class="level"><div><div class="muted small">YOUR CURRENT LEVEL</div><strong id="levelName">LEVEL 0 · BEGINNER</strong></div><div class="sprout" id="levelIcon">🌱</div></div><p class="muted small" id="levelHint">Your next success starts a new streak.</p><div class="bar"><i id="levelBar"></i></div><div class="between muted small"><span id="levelProgress">0 consecutive days</span><span id="nextLevel"></span></div></section>
+
+<section class="card calculator">
+ <div class="between"><h2 class="section-title">🎯 ₹1,000 TARGET CALCULATOR</h2><span class="pill">DAY 60</span></div>
+ <div class="muted small" id="targetMix">Exact target: 35 successes + 25 slip dates</div><hr style="border:0;border-top:1px solid #454545;margin:14px 0">
+ <div class="calcgrid"><div><div class="muted small">SUCCESS DAYS STILL NEEDED</div><div class="big green" id="successNeeded">35</div></div><div><div class="muted small">SLIP DATES STILL NEEDED</div><div class="big gold" id="slipNeeded">25</div></div></div>
+ <div class="between small"><span class="muted">FAP incidents so far</span><b id="incidents">0</b></div><div class="between small"><span class="muted">Financial transactions</span><b id="transactions">0</b></div><div class="between small"><span class="muted">Net savings growth</span><b id="netGrowth">₹0</b></div><div class="between small"><span class="muted">Savings still required</span><b id="remainingSavings">₹500</b></div>
+ <p class="notice" id="achievable">Exact 35 SUCCESS / 25 SLIP target is currently achievable.</p>
+</section>
+
+<section class="card">
+ <h2 class="section-title">⚡ DAILY CHECK-IN</h2><p class="muted small" id="checkinPrompt">Record your result for today.</p>
+ <div class="checkin-buttons"><button class="action success" id="successBtn"><span>✓</span>SUCCESS<small style="display:block">+ ₹50 Savings*</small></button><button class="action slip" id="slipBtn"><span>↗</span>SLIP<small style="display:block">+ ₹50 Goshala</small></button></div>
+ <button class="incident" id="incidentBtn">＋ RECORD FAP INCIDENT · ₹50</button>
+ <p class="notice">One calendar date counts once. Every FAP incident transfers ₹50 separately. A successful day transfers ₹50 from Goshala to Savings when available.</p>
+</section>
+
+<section class="card"><div class="between"><h2 class="section-title">🗓 CHALLENGE CALENDAR</h2><div><button id="prevMonth">‹</button> <button id="nextMonth">›</button></div></div><div class="between small muted"><span id="monthLabel"></span><span>Green: Success · Red: Slip</span></div><div class="calendar" id="calendar"></div><div class="notice">Tap any challenge date to view its records. Gold outline marks today.</div></section>
+
+<section class="card"><div class="between"><h2 class="section-title">📖 CHALLENGE HISTORY</h2><span class="pill" id="entryCount">0 entries</span></div>
+ <div class="tools"><button id="undoBtn">↶ Undo latest</button><button id="editBtn">✎ Edit latest</button><button id="exportCsv">↓ Export CSV</button><button id="exportJson">JSON backup</button><label class="tools"><input id="restoreFile" type="file" accept="application/json" hidden><button id="restoreBtn" type="button">Restore backup</button></label></div>
+ <div class="filters"><button class="active" data-filter="ALL">ALL</button><button data-filter="SUCCESS">SUCCESS</button><button data-filter="SLIP">SLIP</button><button data-filter="INCIDENT">FAP INCIDENTS</button></div>
+ <div id="historyList"><p class="muted small">No entries recorded yet.</p></div>
+</section>
+
+<section class="card"><h2 class="section-title">⚙️ CHALLENGE SETTINGS</h2><p class="muted small">Your progress is automatically saved on this device.</p><div class="tools"><button id="resetBtn" style="color:#ff7777">↻ Reset challenge</button></div><p class="notice">Start: 13 Nov 2026 · End: 11 Jan 2027 · Starting balances: ₹500 + ₹500 · IST</p></section>
+<div class="footer">SAVE WITH DISCIPLINE · GIVE WITH HEART ❤️</div>
+</main>
+
+<div class="modal" id="modal"><div class="dialog"><h2 id="modalTitle">Confirm</h2><p id="modalText" class="muted"></p><div id="modalExtra"></div><div class="dialog-actions"><button id="cancelModal">Cancel</button><button id="confirmModal" class="success">Confirm</button></div></div></div>
+<script>
+(()=>{
+const START='2026-11-13', END='2027-01-11', DAY=86400000, KEY='saveDonate60_v1';
+const $=id=>document.getElementById(id), money=n=>'₹'+Math.round(n).toLocaleString('en-IN');
+const parse=s=>new Date(s+'T00:00:00+05:30'), iso=d=>{let y=d.getFullYear(),m=String(d.getMonth()+1).padStart(2,'0'),day=String(d.getDate()).padStart(2,'0');return `${y}-${m}-${day}`};
+const istNow=()=>new Date(new Date().toLocaleString('en-US',{timeZone:'Asia/Kolkata'}));
+const today=()=>{let d=istNow();return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`};
+const dayNo=date=>Math.floor((parse(date)-parse(START))/DAY)+1;
+let data=load(),filter='ALL',viewDate=START;
+function blank(){return {events:[],seed:{savings:500,gosha:500}}}
+function load(){try{return JSON.parse(localStorage.getItem(KEY))||blank()}catch{return blank()}}
+function save(){localStorage.setItem(KEY,JSON.stringify(data))}
+function validDate(d){return d>=START&&d<=END}
+function eventsFor(d){return data.events.filter(e=>e.date===d)}
+function stats(){
+ let ev=[...data.events].sort((a,b)=>a.ts-b.ts),s=500,g=500,success=0,slipDates=new Set(),inc=0,streak=0,longest=0,successSet=new Set(),slipSet=new Set(),toS=0,toG=0;
+ // Any date containing an incident is a SLIP date, even if SUCCESS was mistakenly checked earlier.
+ let incidentDates=new Set(ev.filter(e=>e.type==='INCIDENT').map(e=>e.date));
+ ev.forEach(e=>{if(e.type==='INCIDENT'){if(s>=50){s-=50;g+=50;toG+=50;inc++;slipDates.add(e.date);slipSet.add(e.date)}}
+ else if(e.type==='SUCCESS'&&!incidentDates.has(e.date)&&!successSet.has(e.date)){successSet.add(e.date);success++;if(g>=50){g-=50;s+=50;toS+=50}}});
+ let cursor=parse(START),end=parse(END);
+ for(;cursor<=end;cursor=new Date(cursor.getTime()+DAY)){let d=iso(cursor);if(slipSet.has(d)){streak=0}else if(successSet.has(d)){streak++;longest=Math.max(longest,streak)}}
+ // current streak only through latest recorded date, not future dates
+ let latest=[...new Set(ev.map(e=>e.date))].sort().pop();streak=0;
+ if(latest){let d=parse(latest);while(d>=parse(START)){let k=iso(d);if(slipSet.has(k))break;if(successSet.has(k)){streak++;d=new Date(d.getTime()-DAY)}else break}}
+ return {s,g,success,slips:slipSet.size,inc,streak,longest,toS,toG,successSet,slipSet,transactions:ev.length};
+}
+function currentDay(){let t=today();if(t<START)return 0;if(t>END)return 60;return Math.min(60,dayNo(t))}
+function level(n){let levels=[[1,3,'STARTER','🌱'],[4,7,'FOCUSED','🎯'],[8,14,'DISCIPLINED','🛡️'],[15,21,'STRONG','💪'],[22,30,'CHAMPION','🏆'],[31,45,'MASTER','👑'],[46,59,'LEGEND','🔥'],[60,60,'ULTIMATE','🌟']];return levels.find(x=>n>=x[0]&&n<=x[1])||[0,0,'BEGINNER','🌱']}
+function render(){
+ let st=stats(),d=today(),n=currentDay(),remaining=n?60-n:60,progress=n/60*100;
+ $('dayNum').innerHTML=`${n||'—'}<span class="muted">/60</span>`;$('todayLabel').textContent=new Date().toLocaleDateString('en-IN',{day:'numeric',month:'short',year:'numeric',timeZone:'Asia/Kolkata'});
+ $('remaining').textContent=remaining;$('overallBar').style.width=progress+'%';$('overallPct').textContent=Math.floor(progress)+'%';
+ $('savings').textContent=money(st.s);$('gosha').textContent=money(st.g);$('savingBar').style.width=Math.min(100,st.s/1000*100)+'%';$('savingPct').textContent=Math.round(st.s/1000*100)+'% of savings target';$('goshaBar').style.width=Math.min(100,st.g/1000*100)+'%';$('goshaSub').textContent=money(st.g)+' available';
+ $('successCount').textContent=st.success;$('slipCount').textContent=st.slips;$('streak').textContent=st.streak;
+ let lv=level(st.streak);$('levelName').textContent=`LEVEL ${lv[0]} · ${lv[2]}`;$('levelIcon').textContent=lv[3];$('levelHint').textContent=st.streak?'Keep protecting your consecutive success streak.':'Your next success starts a new streak.';
+ let pct=lv[0]===0?0:lv[0]===60?100:(st.streak-lv[0]+1)/(lv[1]-lv[0]+1)*100;$('levelBar').style.width=Math.max(0,pct)+'%';$('levelProgress').textContent=st.streak+' consecutive days';$('nextLevel').textContent=st.streak>=60?'Maximum level':`Next: ${lv[1]+1}`;
+ $('successNeeded').textContent=Math.max(0,35-st.success);$('slipNeeded').textContent=Math.max(0,25-st.slips);$('incidents').textContent=st.inc;$('transactions').textContent=st.transactions;$('netGrowth').textContent=money(st.s-500);$('remainingSavings').textContent=money(Math.max(0,1000-st.s));
+ let future=validDate(d)?60-n:0,can=st.success<=35&&st.slips<=25&&st.success+future>=35&&st.slips+future>=25;
+ $('achievable').textContent=(can?'Exact 35 SUCCESS / 25 SLIP target is currently achievable.':'The exact 35 / 25 calendar-day mix is no longer mathematically achievable.')+` Financial outcome also depends on individual FAP incidents and available pot balances.`;
+ let todays=eventsFor(d),hasSlip=todays.some(e=>e.type==='INCIDENT'),hasSuccess=todays.some(e=>e.type==='SUCCESS');
+ $('checkinPrompt').textContent=`Record your result for ${d} (Day ${dayNo(d)}).`;
+ $('successBtn').disabled=!validDate(d)||hasSlip||hasSuccess;$('slipBtn').disabled=!validDate(d)||hasSlip||hasSuccess;$('incidentBtn').disabled=!validDate(d)||st.s<50;
+ $('successBtn').innerHTML=`<span>✓</span>${hasSuccess?'SUCCESS RECORDED':'SUCCESS'}<small style="display:block">+ ₹50 Savings*</small>`;
+ $('slipBtn').innerHTML=`<span>↗</span>${hasSlip?'SLIP RECORDED':'SLIP'}<small style="display:block">+ ₹50 Goshala</small>`;
+ $('statePill').textContent=st.s===0?'● GAME OVER':n===60?'● COMPLETED':'● ACTIVE';$('statePill').style.color=st.s===0?'var(--red)':'var(--green)';
+ renderCalendar();renderHistory();$('entryCount').textContent=data.events.length+' entries';
+ if(st.s===0){$('modalTitle').textContent='GAME OVER';$('modalText').textContent=`Savings Pot has reached ₹0. Success: ${st.success} · Slip days: ${st.slips} · FAP incidents: ${st.inc} · Savings: ${money(st.s)} · Goshala: ${money(st.g)}. Your history remains saved.`;$('modalExtra').innerHTML='';openModal(()=>closeModal())}
+}
+function add(type,date=today()){
+ if(!validDate(date))return alert('Date is outside the 60-day challenge.');
+ let st=stats(),existing=eventsFor(date);
+ if(type==='SUCCESS'){if(existing.some(e=>e.type==='INCIDENT'||e.type==='SUCCESS'))return alert('This date already has a result. Correct its records first.');data.events.push({id:crypto.randomUUID(),type,date,ts:Date.now(),amount:st.g>=50?50:0});}
+ if(type==='INCIDENT'){if(st.s<50)return alert('Insufficient Savings Pot. ₹50 is required for each FAP incident. No transaction was recorded.');data.events.push({id:crypto.randomUUID(),type,date,ts:Date.now(),amount:50});}
+ save();render();
+}
+function ask(title,body,fn){$('modalTitle').textContent=title;$('modalText').textContent=body;$('modalExtra').innerHTML='';openModal(fn)}
+let pending=null;function openModal(fn){pending=fn;$('modal').classList.add('open')}function closeModal(){$('modal').classList.remove('open');pending=null}
+$('cancelModal').onclick=closeModal;$('confirmModal').onclick=()=>{let f=pending;closeModal();if(f)f()};
+$('successBtn').onclick=()=>ask('Confirm SUCCESS','Mark today as SUCCESS? If at least ₹50 is available in Goshala, ₹50 will move to Savings.',()=>add('SUCCESS'));
+$('slipBtn').onclick=()=>ask('Confirm SLIP','Mark today as a slip date? This records one calendar slip day. Use the incident button for each separate FAP incident.',()=>add('INCIDENT'));
+$('incidentBtn').onclick=()=>ask('Record FAP incident','Confirm one FAP incident now. ₹50 will move from Savings to Goshala. Each incident is charged separately.',()=>add('INCIDENT'));
+function renderCalendar(){
+ let d=new Date(viewDate+'T00:00:00'),year=d.getFullYear(),month=d.getMonth();$('monthLabel').textContent=d.toLocaleDateString('en-IN',{month:'long',year:'numeric'});
+ let first=new Date(year,month,1),startOffset=(first.getDay()+6)%7,days=new Date(year,month+1,0).getDate(),out=['M','T','W','T','F','S','S'].map(x=>`<div class="muted small" style="text-align:center">${x}</div>`).join('');
+ for(let i=0;i<startOffset;i++)out+='<div></div>';
+ for(let day=1;day<=days;day++){let date=`${year}-${String(month+1).padStart(2,'0')}-${String(day).padStart(2,'0')}`,events=eventsFor(date),isValid=validDate(date),isSlip=events.some(e=>e.type==='INCIDENT'),isSuccess=events.some(e=>e.type==='SUCCESS'),count=events.filter(e=>e.type==='INCIDENT').length,cls=isSlip?'l':isSuccess?'s':'',todayCls=date===today()?'today':'';out+=`<button class="day ${cls} ${todayCls}" ${!isValid?'disabled':''} data-date="${date}">${day}<small>${isSlip?'×'+count:isSuccess?'✓':isValid?'·':''}</small></button>`}
+ $('calendar').innerHTML=out;$('calendar').querySelectorAll('[data-date]').forEach(b=>b.onclick=()=>showDate(b.dataset.date));
+}
+function showDate(date){let ev=eventsFor(date).sort((a,b)=>a.ts-b.ts);let msg=ev.length?ev.map(e=>`${e.type==='SUCCESS'?'SUCCESS': 'FAP INCIDENT'} · ${new Date(e.ts).toLocaleTimeString('en-IN',{timeZone:'Asia/Kolkata'})} · ${money(e.amount)}`).join('\n'):'No records — Pending';ask(`DAY ${dayNo(date)} · ${date}`,msg,()=>closeModal())}
+$('prevMonth').onclick=()=>{let d=new Date(viewDate+'T00:00:00');d.setMonth(d.getMonth()-1);viewDate=iso(d);renderCalendar()};
+$('nextMonth').onclick=()=>{let d=new Date(viewDate+'T00:00:00');d.setMonth(d.getMonth()+1);viewDate=iso(d);renderCalendar()};
+function renderHistory(){let arr=[...data.events].sort((a,b)=>b.ts-a.ts).filter(e=>filter==='ALL'||(filter==='INCIDENT'?e.type==='INCIDENT':e.type===filter));$('historyList').innerHTML=arr.length?arr.map(e=>`<div class="history-row"><div class="between"><div><strong>${e.type==='SUCCESS'?'✓ SUCCESS':'↗ FAP INCIDENT'}</strong><span class="muted small">Day ${dayNo(e.date)} · ${e.date} · ${new Date(e.ts).toLocaleTimeString('en-IN',{timeZone:'Asia/Kolkata'})}</span></div><b class="${e.type==='SUCCESS'?'green':'gold'}">${e.type==='SUCCESS'?'+':'−'}${money(e.amount)}</b></div></div>`).join(''):'<p class="muted small">No matching entries.</p>'}
+document.querySelectorAll('[data-filter]').forEach(b=>b.onclick=()=>{filter=b.dataset.filter;document.querySelectorAll('[data-filter]').forEach(x=>x.classList.toggle('active',x===b));renderHistory()});
+function latest(){return [...data.events].sort((a,b)=>b.ts-a.ts)[0]}
+$('undoBtn').onclick=()=>{let e=latest();if(!e)return alert('No transaction to undo.');ask('Undo latest transaction',`Delete latest ${e.type} entry from ${e.date}? All balances and statistics will be recalculated.`,()=>{data.events=data.events.filter(x=>x.id!==e.id);save();render()})};
+$('editBtn').onclick=()=>{let e=latest();if(!e)return alert('No transaction to edit.');let newType=prompt('Enter SUCCESS or INCIDENT',e.type);if(!newType)return;if(!['SUCCESS','INCIDENT'].includes(newType.toUpperCase()))return alert('Invalid type.');let date=prompt('Enter date YYYY-MM-DD',e.date);if(!date||!validDate(date))return alert('Date must be within challenge period.');ask('Confirm edit',`Change latest transaction to ${newType.toUpperCase()} on ${date}?`,()=>{e.type=newType.toUpperCase();e.date=date;e.ts=Date.now();save();render()})};
+function download(name,content,type){let blob=new Blob([content],{type}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download=name;a.click();URL.revokeObjectURL(url)}
+$('exportJson').onclick=()=>download('save-or-donate-backup.json',JSON.stringify(data,null,2),'application/json');
+$('exportCsv').onclick=()=>{let rows=[['Date','Challenge Day','Time','Type','Amount'],...data.events.map(e=>[e.date,dayNo(e.date),new Date(e.ts).toISOString(),e.type,e.amount])];download('save-or-donate-history.csv',rows.map(r=>r.join(',')).join('\n'),'text/csv')};
+$('restoreBtn').onclick=()=>$('restoreFile').click();$('restoreFile').onchange=async e=>{let f=e.target.files[0];if(!f)return;try{let obj=JSON.parse(await f.text());if(!Array.isArray(obj.events))throw 0;ask('Restore backup','This replaces current challenge records with the selected backup.',()=>{data=obj;save();render()})}catch{alert('Invalid backup file.')}e.target.value=''};
+$('resetBtn').onclick=()=>ask('Reset challenge?','This permanently clears all saved entries and restores Savings ₹500 and Goshala ₹500.',()=>{data=blank();save();render()});
+render();
+})();
+if ('serviceWorker' in navigator) { window.addEventListener('load', () => navigator.serviceWorker.register('./sw.js').catch(() => {})); }
+</script></body></html>
